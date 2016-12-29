@@ -1,0 +1,85 @@
+    <div ng-controller="UserController">
+        <form>
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon"><i class="fa fa-search"></i></div>
+            <input type="text" class="form-control" placeholder="Filter" ng-model="query">
+          </div>      
+        </div>
+       </form>
+        <div class="">
+            <div class="pagination">
+                <ul>
+                    <li  ng-class="{hide: currentPage == 0}">
+                        <a href ng-click="prevPage()">« Prev</a>
+                    </li>
+                    <li><span>Showing __startItem__-__lastItem__ of __filteredItems.length__ users</span></li>
+
+
+                    <li ng-class="{hide: (currentPage) == pagedItems.length - 1}">
+                        <a href ng-click="nextPage()">Next »</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="pull-right pagination">
+                <button ng-click="addEditUser = true" type="button" class="btn btn-primary"> 
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span>Add User __</span>
+
+                </button>
+            </div>
+        </div>    
+        <table class="table  table-hover data-table myTable table-striped">
+            <thead>
+                <tr>
+                    <th class="lastName" custom-sort order="'lastName'" sort="sort">Last Name</th>
+                    <th class="firstName" custom-sort order="'firstName'" sort="sort">First Name</th>
+                    <th class="age" custom-sort order="'age'" sort="sort">Age</th>
+                    <th class="email" custom-sort order="'email'" sort="sort">Email</th>
+                    <th class="createdOn" custom-sort order="'createdOn'" sort="sort">Created On</th>
+                    <th class="lastEdited" custom-sort order="'lastEdited'" sort="sort">Last Edited</th>
+                    <th class="isActive" custom-sort order="'isActive'" sort="sort"> Active </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-show="addEditUser">
+                    <td ng-class="{ 'has-error': validateDefalut.isLastName }">
+                      <input type="text" name="name" ng-model="newuser.lastName" class="form-control" placeholder="Enter a last name" />
+                       <p ng-show="validateDefalut.isLastName" class="help-block">Last name is required.</p>
+                    </td>
+                    <td ng-class="{ 'has-error': validateDefalut.isFirstName }">
+                        <input type="text" ng-model="newuser.firstName" class="form-control" placeholder="Enter a first name" />
+                        <p ng-show="validateDefalut.isFirstName" class="help-block">First name is required.</p>
+                    </td>
+                    <td><input type="text" ng-model="newuser.age" class="form-control" placeholder="Age" /></td>
+                    <td ng-class="{ 'has-error': validateDefalut.isEmail || newuser.duplicateEmail}">
+                        <input type="text" ng-model="newuser.email" class="form-control" placeholder="email@yourdomain.com"/>
+                        <p ng-show="validateDefalut.isEmail" class="help-block">Email is required.</p>
+                        <p ng-show="newuser.duplicateEmail" class="help-block">Email is already in use.</p>
+                    </td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td class="col-md-2">
+                        <input type="checkbox" ng-model="newuser.isActive" class="pull-left">
+                        <i class="fa fa-reply pull-left" aria-hidden="true" ng-click="rollBack()"></i>
+                        <i class="fa fa-check-square pull-left" aria-hidden="true" ng-click="updateUser()"></i>
+                    </td>  
+                </tr>
+                <tr ng-repeat="user in pagedItems[currentPage] | orderBy:sort.sortingOrder:sort.reverse | filter:query">
+                    <td>__user.lastName__</td>
+                    <td>__user.firstName__</td>
+                    <td>__user.age__</td>
+                    <td>__user.email__</td>
+                    <td date-format>__user.createdOn __</td>
+                    <td date-format>__user.lastEdited__</td>
+                    <td class="col-md-2"> 
+                        <i ng-class="{'fa fa-check': user.isActive}" aria-hidden="true"></i>
+                        <i class="pull-right fa fa-pencil-square" aria-hidden="true" ng-click="editUser(user)"></i>
+                        <i class="pull-right fa fa-trash" aria-hidden="true" ng-click="deleteUser(user.id)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+    </div>
+    <!-- Ends Controller -->

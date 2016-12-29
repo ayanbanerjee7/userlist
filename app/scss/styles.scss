@@ -1,0 +1,80 @@
+$redColor: #ff0000;
+$greenColor: #008000;
+$brownColor:#a52a2a;
+$yellowColor: #ffff00;
+$tableColor:#808080;
+
+@mixin margin-with-font($margin,$fontSize,$color,$marginType) {
+  
+  font-size: $fontSize;
+  color: $color;
+    
+  @if $marginType == 'right' {
+   margin-right: $margin;
+  } 
+  @if $marginType == 'left'{
+   margin-left: $margin;
+  }    
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+ float: left;
+ a , span {
+  display: block;
+  text-align: center;
+  padding: 5px;
+  text-decoration: none;        
+ }
+}
+
+.fa-reply {
+    color: white;
+    background-color: $redColor;
+    border-radius: 3px;
+    padding: 5px;
+    margin-left: 50px;
+}
+.fa-check-square {
+    @include margin-with-font(35px,25px,$greenColor,'left');
+}
+.table {
+    border: 1px solid $tableColor;
+}
+.fa-check{
+    @include margin-with-font(15px,21px,$greenColor,'left');
+}
+.fa-pencil-square{
+    @include margin-with-font(31px,22px,$tableColor,'right');
+}
+.fa-trash{
+    @include margin-with-font(30px,19px,$brownColor,'right');
+}
+
+
+.message {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+.success {
+  @extend .message;
+  border-color: $greenColor;
+}
+
+.error {
+  @extend .message;
+  border-color: $redColor;
+}
+
+.warning {
+  @extend .message;
+  border-color: $yellowColor;
+}

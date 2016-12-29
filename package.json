@@ -1,0 +1,42 @@
+{
+  "name": "UserList",
+  "version": "1.0.0",
+  "description": "Front End Developer",
+  "main": "server.js",
+  "scripts": {
+    "test": "karma start",
+    "start": "node server.js"
+  },
+  "author": "AYAN BANERJEE",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "morgan": "^1.7.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "angular": "^1.5.5",
+    "angular-mocks": "^1.5.5",
+    "angular-route": "^1.5.5",
+    "bootstrap": "^3.3.5",
+    "font-awesome": "^4.7.0",
+    "gulp": "^3.9.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-uglify": "^2.0.0",
+    "gulp-useref": "^3.1.2",
+    "jasmine-core": "^2.4.1",
+    "jquery": "^3.1.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-jasmine": "^1.0.2",
+    "karma-ng-html2js-preprocessor": "^1.0.0",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-spec-reporter": "0.0.26",
+    "phantomjs": "1.9.8",
+    "phantomjs-function-bind-polyfill": "^1.0.0",
+    "phantomjs-polyfill": "0.0.2",
+    "phantomjs-polyfill-find": "github:ptim/phantomjs-polyfill-find",
+    "phantomjs-prebuilt": "^2.1.7"
+  }
+}

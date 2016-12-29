@@ -1,0 +1,30 @@
+    <div ng-controller="OtherController">
+       
+          
+        <div> __other__ Some other page </div>
+        <div id="emailEditor">
+        <input ng-model="to" type="input" placeholder="Recipient" />
+        <textarea ng-model="emailBody"></textarea>
+        </div>
+        <div id="emailPreview">
+        <pre> __previewText__</pre>
+        <p>Date:- __today | date:'mediumDate' __    </p> 
+        </div>
+        <input type="text" ng-model="myValue" />
+        <my-directive my-url="http://www.google.com" ref-text="Google" two-way="myValue"></my-directive>
+        
+        <br>
+        <div class="row">
+        
+        <label>Search</label>
+        <input type="text" value="Doe" />
+
+        <h3>Search Results</h3>
+        <div class="list-group">
+        <search-result-directive person-object="person" formatted-address-function="formattedAddress(aperson)"> Honey Karak hain </search-result-directive>
+    
+        </div>
+</div>
+       
+    </div>
+    <!-- Ends Controller -->
