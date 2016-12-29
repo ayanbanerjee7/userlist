@@ -25,6 +25,7 @@ module.exports = function(config) {
       './app/services/users/userService.js',
       './app/directives/customSortDirective.js',
       './tests/services/users/userService.spec.js',
+      './tests/directives/users/customSortDirective.spec.js',
       './tests/controller/users/userController.spec.js'    
     ],
 
